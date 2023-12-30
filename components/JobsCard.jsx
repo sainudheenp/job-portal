@@ -11,7 +11,7 @@ export default function JobsCard({job , posted}) {
             <div className='mb-4 flex  items-center justify-center py-2 '>
                 <Image width={70} height={70} className="flex rounded-full " src={"https://xsgames.co/randomusers/avatar.php?g=male"} alt="no image" />
                 <div className='flex flex-col mx-2 px-2'>
-                    <h1 className='text-xl md:text-2xl font-semibold'>{job?.user.name}</h1>
+                    <h1 className='text-xl md:text-2xl font-semibold'>{job?.username}</h1>
                     <p className='text-xs sm:text-sm md:text-base text-gray-800'>{job?.company}</p>
                 </div>
             </div>
