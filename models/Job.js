@@ -15,11 +15,11 @@ const JobSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    salary: {
+    wage: {
         type: Number,
         required: true,
     },
-    company: {
+    job_location: {
         type: String,
         required: true,
     },
@@ -44,7 +44,7 @@ const JobSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    job_deadline: {
+    job_date: {
         type: Date,
         required: true,
     },

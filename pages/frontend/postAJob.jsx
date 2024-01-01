@@ -12,8 +12,8 @@ export default function PostAJob() {
     const user = useSelector(state => state.User.userData)
     const router = useRouter();
 
-    const [formData, setFormData] = useState({ user: user?._id, title: "", salary: 0, email: "", company: "", description: "", job_category: "", job_type: "", job_experience: "", job_vacancy: 0, job_deadline: "" });
-    const [error, setError] = useState({ user: "", title: "", salary: "", email: "", company: "", description: "", job_category: "", job_type: "", job_experience: "", job_vacancy: "", job_deadline: "" });
+    const [formData, setFormData] = useState({ user: user?._id, title: "", wage: 0, email: "", job_location: "", description: "", job_category: "", job_type: "", job_experience: "", job_vacancy: 0, job_date: "" });
+    const [error, setError] = useState({ user: "", title: "", wage: "", email: "", job_location: "", description: "", job_category: "", job_type: "", job_experience: "", job_vacancy: "", job_date: "" });
 
     const handleSubmit = async (e) => {
 
@@ -26,8 +26,8 @@ export default function PostAJob() {
             return;
         }
 
-        if (!formData.salary) {
-            setError({ ...error, salary: "salary Field is required" })
+        if (!formData.wage) {
+            setError({ ...error, wage: "wage Field is required" })
             return;
         }
 
@@ -37,8 +37,8 @@ export default function PostAJob() {
         }
 
 
-        if (!formData.company) {
-            setError({ ...error, company: "company Field is required" })
+        if (!formData.job_location) {
+            setError({ ...error, job_location: "Location Field is required" })
             return;
         }
         if (!formData.description) {
@@ -61,8 +61,8 @@ export default function PostAJob() {
             setError({ ...error, job_vacancy: "job_vacancy Field is required" })
             return;
         }
-        if (!formData.job_deadline) {
-            setError({ ...error, job_deadline: "job_deadline Field is required" })
+        if (!formData.job_date) {
+            setError({ ...error, job_date: "job_date Field is required" })
             return;
         }
 
@@ -87,7 +87,7 @@ export default function PostAJob() {
     const options = [
         { value: 'fulltime', label: 'Full Time' },
         { value: 'parttime', label: 'Part Time' },
-        { value: 'internship', label: 'Internship' },
+        // { value: 'internship', label: 'Internship' },
         { value: 'contract', label: 'Contract' },
     ]
 
@@ -110,10 +110,10 @@ export default function PostAJob() {
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
-                        <label htmlFor="salary" className='mb-1 text-base font-semibold'>Salary :</label>
-                        <input onChange={(e) => setFormData({ ...formData, salary: e.target.value })} type="number" id='salary' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Salary for this job' />
+                        <label htmlFor="salary" className='mb-1 text-base font-semibold'>Wage :</label>
+                        <input onChange={(e) => setFormData({ ...formData, wage: e.target.value })} type="number" id='wage' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Wage for this job' />
                         {
-                            error.salary && <p className="text-sm text-red-500">{error.salary}</p>
+                            error.wage && <p className="text-sm text-red-500">{error.wage}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
@@ -124,10 +124,10 @@ export default function PostAJob() {
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
-                        <label htmlFor="company" className='mb-1 text-base font-semibold'>Company :</label>
-                        <input onChange={(e) => setFormData({ ...formData, company: e.target.value })} type="text" id='company' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Company of job' />
+                        <label htmlFor="company" className='mb-1 text-base font-semibold'>Job Location :</label>
+                        <input onChange={(e) => setFormData({ ...formData, job_location: e.target.value })} type="text" id='job_location' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Job Location' />
                         {
-                            error.company && <p className="text-sm text-red-500">{error.company}</p>
+                            error.job_location && <p className="text-sm text-red-500">{error.job_location}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
@@ -165,10 +165,10 @@ export default function PostAJob() {
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
-                        <label htmlFor="jobva" className='mb-1 text-base font-semibold'>Job Deadline :</label>
-                        <input onChange={(e) => setFormData({ ...formData, job_deadline: e.target.value })} type="date" id='jobva' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Deadline of job' />
+                        <label htmlFor="jobva" className='mb-1 text-base font-semibold'>Job Date :</label>
+                        <input onChange={(e) => setFormData({ ...formData, job_date: e.target.value })} type="date" id='jobda' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Date of job' />
                         {
-                            error.job_deadline && <p className="text-sm text-red-500">{error.job_deadline}</p>
+                            error.job_date && <p className="text-sm text-red-500">{error.job_date}</p>
                         }
                     </div>
                     <button type="submit" className='w-full py-2 rounded bg-indigo-600 text-white font-semibold tracking-widest'>Submit</button>

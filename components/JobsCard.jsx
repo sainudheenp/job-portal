@@ -11,20 +11,25 @@ export default function JobsCard({job , posted}) {
             <div className='mb-4 flex  items-center justify-center py-2 '>
                 <Image width={70} height={70} className="flex rounded-full " src={"https://xsgames.co/randomusers/avatar.php?g=male"} alt="no image" />
                 <div className='flex flex-col mx-2 px-2'>
-                    <h1 className='text-xl md:text-2xl font-semibold'>{job?.username}</h1>
-                    <p className='text-xs sm:text-sm md:text-base text-gray-800'>{job?.company}</p>
+                    <h1 className='text-xl md:text-2xl font-semibold'>{job?.user?.name}</h1>
+                    <p className='text-xs sm:text-sm md:text-base text-gray-800'>{job?.job_location}</p>
                 </div>
             </div>
             <div className='mb-4 flex   items-start justify-center py-2 flex-col'>
-                <div className='flex  px-2 py-2 items-center justify-center '>
+                <div className='flex  items-center justify-center '>
                     <BsDot className='text-4xl font-extrabold text-indigo-600' />
-                    <h1 className='text-lg text-gray-900'>Salary :</h1>
-                    <p className='text-base  font-semibold'>{job?.salary}$ / month</p>
+                    <h2 className='text-lg text-gray-900'>Wage :</h2>
+                    <p className='text-base  font-semibold'>₹{job?.wage} / day</p>
                 </div>
-                <div className='flex px-2 py-2 items-center  justify-center'>
+                <div className='flex items-center  justify-center'>
                     <BsDot className='text-4xl font-extrabold text-indigo-600' />
-                    <h1 className='text-lg text-gray-900'>Deadline :</h1>
-                    <p className='text-base  font-semibold'>{new Date(`${job?.job_deadline}`).toLocaleDateString('en-GB')}</p>
+                    <h2 className='text-lg text-gray-900'>Date :</h2>
+                    <p className='text-base  font-semibold'>{new Date(`${job?.job_date}`).toLocaleDateString('en-GB')}</p>
+                </div>
+                <div className='flex  items-center justify-center '>
+                    <BsDot className='text-4xl font-extrabold text-indigo-600' />
+                    <h2 className='text-lg text-gray-900'>Job Type :</h2>
+                    <p className='text-base  font-semibold'>{job?.job_type}</p>
                 </div>
             </div>
             <div className='mb-4 flex flex-col md:flex-wrap md:flex-row w-full justify-between  items-center '>

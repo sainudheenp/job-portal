@@ -9,13 +9,13 @@ const schema = Joi.object({
     description: Joi.string().required(),
     user: Joi.required(),
     email: Joi.string().email().required(),
-    company: Joi.string().required(),
+    job_location: Joi.string().required(),
     job_category: Joi.string().required(),
     job_type: Joi.string().required(),
     job_experience: Joi.string().required(),
     job_vacancy: Joi.number().required(),
-    job_deadline: Joi.date().required(),
-    salary: Joi.number().required(),
+    job_date: Joi.date().required(),
+    wage: Joi.number().required(),
 });
 
 
@@ -36,13 +36,13 @@ export default async (req, res) => {
 const postAJob =  async (req, res) => {
     await ConnectDB();
     const data = req.body;
-    const { user ,title,description , salary , company , email , job_category , job_type , job_experience , job_vacancy , job_deadline } = data;
-    const { error } = schema.validate({ user ,title,description , salary , company , email , job_category , job_type , job_experience , job_vacancy , job_deadline });
+    const { user ,title,description , wage , job_location , email , job_category , job_type , job_experience , job_vacancy , job_date } = data;
+    const { error } = schema.validate({ user ,title,description , wage , job_location , email , job_category , job_type , job_experience , job_vacancy , job_date });
 
     if (error) return res.status(401).json({ success: false, message: error.details[0].message.replace(/['"]+/g, '') });
 
     try {
-        const creatingUser =  await Job.create({user , title,description , salary , company , email , job_category , job_type , job_experience , job_vacancy , job_deadline });
+        const creatingUser =  await Job.create({user , title,description , wage , job_location , email , job_category , job_type , job_experience , job_vacancy , job_date });
         return res.status(200).json({ success: true, message: "Job Posted Successfully !" })
     } catch (error) {
         console.log('Error in posting a job (server) => ', error);
