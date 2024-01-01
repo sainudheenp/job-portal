@@ -24,7 +24,7 @@ const ApplyJobSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    photo: {
+    cv: {
         type: String,
         required: true,
     },
