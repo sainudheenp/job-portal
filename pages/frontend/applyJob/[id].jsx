@@ -13,7 +13,7 @@ export default function ApplyJob() {
     const activeUser = useSelector(state => state.User.userData)
     const [formikData, setFormikData] = useState({ name: '', email: activeUser?.email , about: '', job: id, user: activeUser?._id })
     const [file, setFile] = useState(null)
-    const [error, setError] = useState({ name: '', email: "", about: '', job: '', user: '', cv: '' });
+    const [error, setError] = useState({ name: '', email: "", about: '', job: '', user: '', photo: '' });
 
 
     const { name, email, about, job, user } = formikData;
@@ -48,13 +48,13 @@ export default function ApplyJob() {
         }
 
         if (!file) {
-            setError({ ...error, cv: "Please Upload CV" })
+            setError({ ...error, photo: "Please Upload your Photo" })
             return;
         }
 
         // Check if the file type is PDF
-        if (file.type !== 'application/pdf') {
-            setError({ ...error, cv: "Please Upload a PDF file" })
+        if (file.type !== 'png/jpg') {
+            setError({ ...error, cv: "Please Upload a jpg file" })
             return;
         }
 
@@ -67,7 +67,7 @@ export default function ApplyJob() {
         form.append('about', about);
         form.append('job', job);
         form.append('user', user);
-        form.append('cv', file);
+        form.append('photo', file);
 
 
         const res = await apply_job(form);
@@ -115,10 +115,10 @@ export default function ApplyJob() {
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
-                        <label htmlFor="file" className='mb-1 text-base font-semibold'>Upload CV :</label>
-                        <input accept="application/pdf" name='cv' onChange={(e) => setFile(e.target.files[0])} type="file" id='file' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Email' />
+                        <label htmlFor="file" className='mb-1 text-base font-semibold'>Upload Photo :</label>
+                        <input accept="png/jpg" name='cv' onChange={(e) => setFile(e.target.files[0])} type="file" id='file' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Photo' />
                         {
-                            error.cv && <p className="text-sm text-red-500">{error.cv}</p>
+                            error.photo && <p className="text-sm text-red-500">{error.photo}</p>
                         }
                     </div>
 

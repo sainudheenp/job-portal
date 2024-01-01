@@ -35,16 +35,16 @@ export default function SavedJobDataTable() {
             selector: row => new Date(`${row?.job?.createdAt}`).toLocaleDateString('en-GB'),
         },
         {
-            name: 'Company',
-            selector: row => row?.job?.company,
+            name: 'Job Location',
+            selector: row => row?.job?.job_location,
         },
         {
             name: 'Job title',
             selector: row => row?.job?.title,
         },
         {
-            name: 'Job Salary ',
-            selector: row => '$' + row?.job?.salary,
+            name: 'Job Wage ',
+            selector: row => '$' + row?.job?.wage,
         },
         {
             name: 'Action',

@@ -31,16 +31,16 @@ export default function AppliedJobDataTable() {
             selector: row => new Date(`${row?.job?.createdAt}`).toLocaleDateString('en-GB'),
         },
         {
-            name: 'Company',
-            selector: row => row?.job?.company,
+            name: 'Job Location',
+            selector: row => row?.job?.job_location,
         },
         {
             name: 'Job title',
             selector: row => row?.job?.title,
         },
         {
-            name: 'Job Salary ',
-            selector: row => '$' + row?.job?.salary,
+            name: 'Job Wage ',
+            selector: row => '$' + row?.job?.wage,
         },
         {
             name: 'Status',
@@ -60,7 +60,7 @@ export default function AppliedJobDataTable() {
             setFilteredData(Data);
         } else {
             setFilteredData(Data?.filter((item) => {
-                const itemData = item?.job?.company.toUpperCase();
+                const itemData = item?.job?.job_location.toUpperCase();
                 const textData = search.toUpperCase();
                 return itemData.indexOf(textData) > -1;
             }))

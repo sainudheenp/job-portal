@@ -50,8 +50,8 @@ const applyToJob =  async (req, res) => {
                 throw err
             }
 
-            const oldPath = files.cv.filepath;
-            const originalFileName  = files.cv.originalFilename
+            const oldPath = files.photo.filepath;
+            const originalFileName  = files.photo.originalFilename
             
 
 
@@ -83,7 +83,7 @@ const applyToJob =  async (req, res) => {
                 about: fields.about,
                 job: fields.job,
                 user: fields.user,
-                cv: fileName,
+                photo: fileName,
             };
 
             const {name , email , about , job , user} = jobApplication;
