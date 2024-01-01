@@ -52,7 +52,7 @@ export default function ApplicationsDataTable({ application }) {
         const fileUrl = `/uploads/${name}`;
         const link = document.createElement('a');
         link.href = fileUrl;
-        link.download = 'cv.pdf';
+        link.download = 'cv.jpg';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -74,8 +74,8 @@ export default function ApplicationsDataTable({ application }) {
             selector: row => <p className={`uppercase font-semibold ${row?.status === "approved" ? "text-green-500" : ""}  ${row?.status === "rejected" ? "text-red-600" : ""}`}>{row?.status}</p>,
         },
         {
-            name: 'Photo',
-            selector: row => <button onClick={() => handleDownloadCV(row?.photo)} className=' w-20 py-2 text-xs text-indigo-600 hover:text-white my-2 hover:bg-indigo-600 border border-indigo-600 rounded transition-all duration-700'>Download Photo</button>
+            name: 'cv',
+            selector: row => <button onClick={() => handleDownloadCV(row?.cv)} className=' w-20 py-2 text-xs text-indigo-600 hover:text-white my-2 hover:bg-indigo-600 border border-indigo-600 rounded transition-all duration-700'>Download Photo</button>
         },
         {
             name: 'Status',
