@@ -75,7 +75,7 @@ export default function ApplicationsDataTable({ application }) {
         },
         {
             name: 'cv',
-            selector: row => <button onClick={() => handleDownloadCV(row?.cv)} className=' w-20 py-2 text-xs text-indigo-600 hover:text-white my-2 hover:bg-indigo-600 border border-indigo-600 rounded transition-all duration-700'>Download Photo</button>
+            selector: row => <button onClick={() => handleDownloadCV(row?.cv)} className=' w-20 py-2 text-xs text-black hover:text-white my-2 hover:bg-black border border-black rounded transition-all duration-700'>Download Photo</button>
         },
         {
             name: 'Status',
@@ -85,7 +85,7 @@ export default function ApplicationsDataTable({ application }) {
             name: 'Action',
             cell: row => (
                 <div className='flex items-center justify-start w-72 h-20'>
-                    <button onClick={() => router.push(`/frontend/applicationDetail/${row?._id}`)} className=' w-20 py-2 mx-2 text-xs text-indigo-600 hover:text-white my-2 hover:bg-indigo-600 border border-indigo-600 rounded transition-all duration-700'>Details</button>
+                    <button onClick={() => router.push(`/frontend/applicationDetail/${row?._id}`)} className=' w-20 py-2 mx-2 text-xs text-black hover:text-white my-2 hover:bg-black border border-black rounded transition-all duration-700'>Details</button>
                     <button onClick={() => handleAcceptStatus(row?._id)} className=' w-20 py-2 mx-2 text-xs text-green-600 hover:text-white my-2 hover:bg-green-600 border border-green-600 rounded transition-all duration-700'>Approved</button>
                     <button onClick={() => handleRejectStatus(row?._id)} className=' w-20 py-2 mx-2 text-xs text-red-600 hover:text-white my-2 hover:bg-red-600 border border-red-600 rounded transition-all duration-700'>Reject</button>
                 </div>
@@ -129,7 +129,7 @@ export default function ApplicationsDataTable({ application }) {
                 subHeader
                 persistTableHead
                 subHeaderComponent={
-                    <input className='w-60  py-2 px-2  outline-none  border-b-2 border-indigo-600' type={"search"}
+                    <input className='w-60  py-2 px-2  outline-none  border-b-2 border-black' type={"search"}
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         placeholder={"Search with Applicant  name..."} />
