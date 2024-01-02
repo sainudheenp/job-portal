@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 export default function JobsCard({job , posted}) {
     const router = useRouter();
     return (
-        <div key={job._id} className='w-full cursor-pointer  transition-all duration-1000  md:w-5/12 m-4 border hover:shadow-xl rounded px-4 md:flex md:flex-wrap'>
+        <div key={job._id} className='w-full cursor-pointer  transition-all duration-1000 bg-gray-500  md:w-5/12 m-4 border-black hover:shadow-xl rounded px-4 md:flex md:flex-wrap'>
             <div className='mb-4 flex  items-center justify-center py-2 '>
                 <Image width={70} height={70} className="flex rounded-full " src="/avatar.png" alt="no image" />
                 <div className='flex flex-col mx-2 px-2'>
@@ -18,17 +18,17 @@ export default function JobsCard({job , posted}) {
             </div>
             <div className='mb-4 flex   items-start justify-center py-2 flex-col'>
                 <div className='flex  items-center justify-center '>
-                    <BsDot className='text-4xl font-extrabold text-indigo-600' />
+                    <BsDot className='text-4xl font-extrabold text-white' />
                     <h2 className='text-lg text-gray-900'>Wage :</h2>
                     <p className='text-base  font-semibold'>₹{job?.wage} / day</p>
                 </div>
                 <div className='flex items-center  justify-center'>
-                    <BsDot className='text-4xl font-extrabold text-indigo-600' />
+                    <BsDot className='text-4xl font-extrabold text-white' />
                     <h2 className='text-lg text-gray-900'>Date :</h2>
                     <p className='text-base  font-semibold'>{new Date(`${job?.job_date}`).toLocaleDateString('en-GB')}</p>
                 </div>
                 <div className='flex  items-center justify-center '>
-                    <BsDot className='text-4xl font-extrabold text-indigo-600' />
+                    <BsDot className='text-4xl font-extrabold text-white' />
                     <h2 className='text-lg text-gray-900'>Job Type :</h2>
                     <p className='text-base  font-semibold'>{job?.job_type}</p>
                 </div>
@@ -36,16 +36,16 @@ export default function JobsCard({job , posted}) {
             <div className='mb-4 flex flex-col md:flex-wrap md:flex-row w-full justify-between  items-center '>
 
                 <div className='mb-4 flex  items-start justify-center py-2 flex-col'>
-                    <div className='flex px-6 rounded-2xl py-1 items-center justify-center bg-indigo-200 text-indigo-900  '>
+                    <div className='flex px-6 rounded-2xl py-1 items-center justify-center bg-gray-500 text-gray-300  '>
                         <p>{job?.title} </p>
                     </div>
                 </div>
                 {
                     posted ? (
-                        <button onClick={() => router.push(`/frontend/detailPostedJob/${job?._id}`)} className='my-2 py-2 px-4  border border-indigo-600   rounded flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-indigo-600 font-semibold'>View Applications <AiOutlineArrowRight className='mx-2 text-xl' /></button>
+                        <button onClick={() => router.push(`/frontend/detailPostedJob/${job?._id}`)} className='my-2 py-2 px-4  border border-white   rounded flex items-center justify-center transition-all duration-700 hover:bg-black hover:text-white text-white font-semibold'>View Applications <AiOutlineArrowRight className='mx-2 text-xl' /></button>
                     ) : (
 
-                        <button onClick={() => router.push(`/frontend/jobDetails/${job?._id}`)} className='my-2 py-2 px-4  border border-indigo-600   rounded flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-indigo-600 font-semibold'>View Detail <AiOutlineArrowRight className='mx-2 text-xl' /></button>
+                        <button onClick={() => router.push(`/frontend/jobDetails/${job?._id}`)} className='my-2 py-2 px-4  border border-white   rounded flex items-center justify-center transition-all duration-700 hover:bg-black hover:text-white text-white font-semibold'>View Detail <AiOutlineArrowRight className='mx-2 text-xl' /></button>
                     )
                 }
             </div>
