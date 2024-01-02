@@ -49,7 +49,7 @@ export default function Intro() {
           </div>
         </div>
         <div className='w-3/6 my-2 h-full hidden items-center justify-center flex-col p-20 lg:flex '>
-          <Image  width={400} height={700} src="/intro1.png" alt="no-image-found"  />
+          <Image  width={500} height={700} src="/labour1.jpg" alt="no-image-found" className='rounded-full' />
         </div>
       </div>
       {
