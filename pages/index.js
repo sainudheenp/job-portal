@@ -9,8 +9,6 @@ import { toast } from 'react-toastify'
 import useSWR from 'swr'
 import { get_job } from '@/Services/job'
 import { setJobData } from '@/Utils/JobSlice'
-import { InfinitySpin } from 'react-loader-spinner'
-
 
 
 export default function Home() {
@@ -46,8 +44,6 @@ export default function Home() {
         <meta name="description" content="Search and apply for the latest jobs in your field. Explore opportunities from top companies and make your career dreams come true." />
         <meta name="keywords" content="job portal, job search, career opportunities, employment, job listings, job openings, job vacancies, job postings, hiring, recruitment" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://job-portal-teal.vercel.app/" />
-        <meta name="author" content="Abdullah Moiz" />
         <meta property="og:title" content="Find Your Dream Job | Job Portal Name" />
         <meta name="twitter:title" content="Find Your Dream Job | Job Portal Name" />
         <meta name="language" content="en-US" />
@@ -56,8 +52,6 @@ export default function Home() {
       {
         isLoading ? (
           <div className='bg-gray w-full h-screen flex items-center flex-col justify-center'>
-            <InfinitySpin width='200' color="#4f46e5" />
-            <p className='text-xs uppercase'>Loading Resources Hold Tight...</p>
           </div>
         ) : (
           <>
