@@ -99,47 +99,47 @@ export default function PostAJob() {
     return (
         <>
             <NavBar />
-            <div className='w-full  py-20 flex items-center  justify-center flex-col'>
-                <h1 className='text-xl mt-4 uppercase tracking-widest border-b-2 border-b-indigo-600 py-2 font-semibold mb-8 md:text-2xl lg:text-4xl'>Enter Job Details</h1>
+            <div className='w-full  py-20 flex items-center  justify-center flex-col bg-gray-600 text-white'>
+                <h1 className='text-xl mt-4 uppercase tracking-widest border-b-2 border-b-black py-2 font-semibold mb-8 md:text-2xl lg:text-4xl'>Enter Job Details</h1>
                 <form onSubmit={handleSubmit} className="sm:w-1/2 w-full px-4 mx-4  h-full" >
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="title" className='mb-1 text-base font-semibold'>Title :</label>
-                        <input onChange={(e) => setFormData({ ...formData, title: e.target.value })} type="text" id='title' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter title of job' />
+                        <input onChange={(e) => setFormData({ ...formData, title: e.target.value })} type="text" id='title' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter title of job' />
                         {
                             error.title && <p className="text-sm text-red-500">{error.title}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="salary" className='mb-1 text-base font-semibold'>Wage :</label>
-                        <input onChange={(e) => setFormData({ ...formData, wage: e.target.value })} type="number" id='wage' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Wage for this job' />
+                        <input onChange={(e) => setFormData({ ...formData, wage: e.target.value })} type="number" id='wage' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Wage for this job' />
                         {
                             error.wage && <p className="text-sm text-red-500">{error.wage}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="email" className='mb-1 text-base font-semibold'>Email :</label>
-                        <input onChange={(e) => setFormData({ ...formData, email: e.target.value })} type="email" id='email' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Email to be Contacted for this job' />
+                        <input onChange={(e) => setFormData({ ...formData, email: e.target.value })} type="email" id='email' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Email to be Contacted for this job' />
                         {
                             error.email && <p className="text-sm text-red-500">{error.email}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="company" className='mb-1 text-base font-semibold'>Job Location :</label>
-                        <input onChange={(e) => setFormData({ ...formData, job_location: e.target.value })} type="text" id='job_location' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Job Location' />
+                        <input onChange={(e) => setFormData({ ...formData, job_location: e.target.value })} type="text" id='job_location' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Job Location' />
                         {
                             error.job_location && <p className="text-sm text-red-500">{error.job_location}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="description" className='mb-1 text-base font-semibold'>Description :</label>
-                        <textarea onChange={(e) => setFormData({ ...formData, description: e.target.value })} onResize={"none"} type="text" id='description' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter description of job' />
+                        <textarea onChange={(e) => setFormData({ ...formData, description: e.target.value })} onResize={"none"} type="text" id='description' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter description of job' />
                         {
                             error.description && <p className="text-sm text-red-500">{error.description}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="jobCategory" className='mb-1 text-base font-semibold'>Job Category :</label>
-                        <input onChange={(e) => setFormData({ ...formData, job_category: e.target.value })} type="text" id='jobCategory' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Category of job' />
+                        <input onChange={(e) => setFormData({ ...formData, job_category: e.target.value })} type="text" id='jobCategory' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Category of job' />
                         {
                             error.job_category && <p className="text-sm text-red-500">{error.job_category}</p>
                         }
@@ -152,26 +152,26 @@ export default function PostAJob() {
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="jobExperience" className='mb-1 text-base font-semibold'>Job Experience :</label>
-                        <input onChange={(e) => setFormData({ ...formData, job_experience: e.target.value })} type="text" id='jobExperience' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Experience Required for this job' />
+                        <input onChange={(e) => setFormData({ ...formData, job_experience: e.target.value })} type="text" id='jobExperience' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Experience Required for this job' />
                         {
                             error.job_experience && <p className="text-sm text-red-500">{error.job_experience}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="jobva" className='mb-1 text-base font-semibold'>Job Vacancy :</label>
-                        <input onChange={(e) => setFormData({ ...formData, job_vacancy: e.target.value })} type="number" id='jobva' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Number  of Vacancies' />
+                        <input onChange={(e) => setFormData({ ...formData, job_vacancy: e.target.value })} type="number" id='jobva' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Number  of Vacancies' />
                         {
                             error.job_vacancy && <p className="text-sm text-red-500">{error.job_vacancy}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="jobva" className='mb-1 text-base font-semibold'>Job Date :</label>
-                        <input onChange={(e) => setFormData({ ...formData, job_date: e.target.value })} type="date" id='jobda' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Date of job' />
+                        <input onChange={(e) => setFormData({ ...formData, job_date: e.target.value })} type="date" id='jobda' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Date of job' />
                         {
                             error.job_date && <p className="text-sm text-red-500">{error.job_date}</p>
                         }
                     </div>
-                    <button type="submit" className='w-full py-2 rounded bg-indigo-600 text-white font-semibold tracking-widest'>Submit</button>
+                    <button type="submit" className='w-full py-2 rounded bg-black text-white font-semibold tracking-widest'>Submit</button>
                 </form>
             </div>
             <ToastContainer />
