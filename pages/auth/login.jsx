@@ -85,7 +85,7 @@ export default function Login() {
                     <label htmlFor="remember" className="text-gray-500 dark:text-gray-300">Remember me</label>
                   </div>
                 </div>
-                <Link href="/auth/forget-password" className="text-sm font-medium text-black hover:underline ">Forgot password?</Link>
+                {/* <Link href="/auth/forget-password" className="text-sm font-medium text-black hover:underline ">Forgot password?</Link> */}
               </div>
               <button type="submit" className="w-full text-white hover:text-black border-4 bg-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-black font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-black dark:hover:bg-white dark:focus:ring-black">Sign in</button>
               <p className="text-sm font-light ">

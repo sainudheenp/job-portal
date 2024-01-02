@@ -52,7 +52,7 @@ export default function SavedJobDataTable() {
         },
         {
             name: '',
-            cell: row => <button onClick={() => router.push(`/frontend/jobDetails/${row?.job?._id}`)} className='md:px-2 md:py-2 px-1 py-1 text-xs text-indigo-600 hover:text-white my-2 hover:bg-indigo-600 border border-indigo-600   rounded transition-all duration-700  '>view Detail</button>,
+            cell: row => <button onClick={() => router.push(`/frontend/jobDetails/${row?.job?._id}`)} className='md:px-2 md:py-2 px-1 py-1 text-xs text-black hover:text-white my-2 hover:bg-black border border-black   rounded transition-all duration-700  '>view Detail</button>,
         },
     ];
 
@@ -102,12 +102,12 @@ export default function SavedJobDataTable() {
                             subHeader
                             persistTableHead
                             subHeaderComponent={
-                                <input className='w-60  py-2 px-2  outline-none  border-b-2 border-indigo-600' type={"search"}
+                                <input className='w-60  py-2 px-2  outline-none  border-b-2 border-black' type={"search"}
                                     value={search}
                                     onChange={(e) => setSearch(e.target.value)}
                                     placeholder={"Search with company name..."} />
                             }
-                            className="h-screen bg-white"
+                            className="h-screen"
                         />
                    
                             <ToastContainer/>
