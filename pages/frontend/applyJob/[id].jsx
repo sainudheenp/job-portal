@@ -91,39 +91,39 @@ export default function ApplyJob() {
     return (
         <>
             <NavBar />
-            <div className='w-full  py-20 flex items-center  justify-center flex-col'>
-                <h1 className='text-xl mt-4 uppercase tracking-widest border-b-2 border-b-indigo-600 py-2 font-semibold mb-8 md:text-2xl lg:text-4xl'>Enter Your Info</h1>
+            <div className='w-full  py-20 flex items-center  justify-center flex-col bg-gray-600 text-white'>
+                <h1 className='text-xl mt-4 uppercase tracking-widest border-b-2 border-b-black py-2 font-semibold mb-8 md:text-2xl lg:text-4xl'>Enter Your Info</h1>
                 <form encType="multipart/form-data" onSubmit={handleSubmit} className="sm:w-1/2 w-full px-4 mx-4  h-full" >
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="title" className='mb-1 text-base font-semibold'>Name :</label>
-                        <input name='name' onChange={(e) => setFormikData({ ...formikData, name: e.target.value })} type="text" id='title' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Name ' />
+                        <input name='name' onChange={(e) => setFormikData({ ...formikData, name: e.target.value })} type="text" id='title' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Name ' />
                         {
                             error.name && <p className="text-sm text-red-500">{error.name}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="email" className='mb-1 text-base font-semibold'>Email :</label>
-                        <input name='email' value={email} disabled type="email" id='email' className='w-full  py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Email' />
+                        <input name='email' value={email} disabled type="email" id='email' className='w-full  py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Email' />
                         {
                             error.email && <p className="text-sm text-red-500">{error.email}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="description" className='mb-1 text-base font-semibold'>About :</label>
-                        <textarea name='about' onChange={(e) => setFormikData({ ...formikData, about: e.target.value })} type="description" id='description' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter description' />
+                        <textarea name='about' onChange={(e) => setFormikData({ ...formikData, about: e.target.value })} type="description" id='description' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter description' />
                         {
                             error.about && <p className="text-sm text-red-500">{error.about}</p>
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="file" className='mb-1 text-base font-semibold'>Upload Photo :</label>
-                        <input accept="image/jpeg" name='cv' onChange={(e) => setFile(e.target.files[0])} type="file" id='file' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Photo' />
+                        <input accept="image/jpeg" name='cv' onChange={(e) => setFile(e.target.files[0])} type="file" id='file' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Photo' />
                         {
                             error.cv && <p className="text-sm text-red-500">{error.cv}</p>
                         }
                     </div>
 
-                    <button type="submit" className='w-full py-2 rounded bg-indigo-600 text-white font-semibold tracking-widest'>Submit</button>
+                    <button type="submit" className='w-full py-2 rounded bg-black text-white font-semibold tracking-widest'>Submit</button>
                 </form>
             </div>
             <ToastContainer />
