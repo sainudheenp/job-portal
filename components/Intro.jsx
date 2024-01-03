@@ -54,7 +54,7 @@ export default function Intro() {
       </div>
       {
         doneSearch && (
-          <div className='w-full flex flex-wrap items-center justify-center py-2 px-2'>
+          <div className='w-full flex flex-wrap items-center justify-center py-2 px-2  ' >
             {
               Array.isArray(filterJobs) && filterJobs.length > 0 ? filterJobs?.map((job) => {
                 return (
