@@ -104,7 +104,7 @@ export default function PostAJob() {
                 <form onSubmit={handleSubmit} className="sm:w-1/2 w-full px-4 mx-4  h-full" >
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="title" className='mb-1 text-base font-semibold'>Title :</label>
-                        <input onChange={(e) => setFormData({ ...formData, title: e.target.value })} type="text" id='title' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter title of job' />
+                        <input onChange={(e) => setFormData({ ...formData, title: e.target.value })} type="text" id='title' className='w-full py-2 px-3 mb-2 border border-black rounded text-black' placeholder='Enter title of job' />
                         {
                             error.title && <p className="text-sm text-red-500">{error.title}</p>
                         }
