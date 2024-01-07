@@ -91,6 +91,14 @@ export default function PostAJob() {
         { value: 'contract', label: 'Contract' },
     ]
 
+    // const location = [
+    //     { value: 'bathery', label: 'Bathery' },
+    //     { value: 'kalpetta', label: 'Kalpetta' },
+    //     { value: 'mananthavady', label: 'Mananthavady' },
+    // ]
+
+
+
 
 
 
@@ -125,7 +133,7 @@ export default function PostAJob() {
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="company" className='mb-1 text-base font-semibold'>Job Location :</label>
-                        <input onChange={(e) => setFormData({ ...formData, job_location: e.target.value })} type="text" id='job_location' className='w-full py-2 px-3 mb-2 border border-black rounded text-black' placeholder='Enter Job Location' />
+                        <input onChange={(e) => setFormData({ ...formData, job_location: e.target.value })} id='job_location' className='w-full py-2 px-3 mb-2 border border-black rounded text-black' placeholder='Enter Job Location' options={location} />
                         { 
                             error.job_location && <p className="text-sm text-red-500">{error.job_location}</p>
                         }
@@ -144,7 +152,7 @@ export default function PostAJob() {
                             error.job_category && <p className="text-sm text-red-500">{error.job_category}</p>
                         }
                     </div>
-                    <Select onChange={(e) => setFormData({ ...formData, job_type: e.value })} placeholder="Please Select Job type" options={options} />
+                    <Select onChange={(e) => setFormData({ ...formData, job_type: e.value })} placeholder="Please Select Job type" className='text-black' options={options} />
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         {
                             error.job_category && <p className="text-sm text-red-500">{error.job_category}</p>
