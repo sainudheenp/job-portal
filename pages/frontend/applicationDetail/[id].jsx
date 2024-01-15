@@ -41,7 +41,7 @@ export default function ApplicationsDetail() {
                 isLoading ? (
                     <div className='bg-gray w-full h-screen flex items-center flex-col justify-center'>
                         
-                        <p className='text-xs uppercase'>Loading Resources Hold Tight...</p>
+
                     </div>
                 ) : (
                     <>
