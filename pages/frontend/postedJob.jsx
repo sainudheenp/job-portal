@@ -5,7 +5,6 @@ import NavBar from '@/components/NavBar'
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
-import { InfinitySpin } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import useSWR from 'swr'
@@ -40,8 +39,7 @@ export default function PostedJobs() {
                 isLoading ? (
 
                     <div className='bg-gray w-full h-screen flex items-center flex-col justify-center'>
-                        <InfinitySpin width='200' color="#4f46e5" />
-                        <p className='text-xs uppercase'>Loading Resources Hold Tight...</p>
+                       
                     </div>
                 ) : (
                     <>

@@ -15,7 +15,6 @@ import { setMatchingJobDat } from '@/Utils/JobSlice'
 import { get_specified_job } from '@/Services/job'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import { InfinitySpin } from 'react-loader-spinner'
 import useSWR from 'swr'
 import { book_mark_job } from '@/Services/job/bookmark'
 
@@ -77,8 +76,7 @@ export default function JobDetails() {
             {
                 isLoading ? (
                     <div className='bg-gray w-full h-screen flex items-center flex-col justify-center'>
-                        <InfinitySpin width='200' color="#4f46e5" />
-                        <p className='text-xs uppercase'>Loading Resources Hold Tight...</p>
+                        
                     </div>
                 ) : (
                     <>
