@@ -44,7 +44,7 @@ export default function SavedJobDataTable() {
         },
         {
             name: 'Job Wage ',
-            selector: row => '$' + row?.job?.wage,
+            selector: row => '₹' + row?.job?.wage,
         },
         {
             name: 'Action',

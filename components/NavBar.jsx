@@ -86,7 +86,7 @@ export default function NavBar() {
 
     return (
         <>
-            <div className={`w-full ${scrolled ? "dark:bg-gray-900" : "dark:bg-gray-900"} px-6 h-20 dark:bg-gray-900 text-black flex items-center justify-between fixed top-0 left-0 z-50 shadow-lg`}>
+            <div className={`w-full ${scrolled ? "dark:bg-gray-900" : "dark:bg-gray-900"} px-6 h-20 dark:bg-gray-900 text-black flex items-center justify-between fixed top-0 left-0 z-50 shadow-lg font-mono`}>
                 <div className='px-2 h-full flex items-center justify-center'>
                     <p className='uppercase font-bold tracking-widest text-lg text-white'>Hire-All</p>
                 </div>

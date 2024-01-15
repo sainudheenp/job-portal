@@ -17,10 +17,12 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import useSWR from 'swr'
 import { book_mark_job } from '@/Services/job/bookmark'
+import { AiFillDelete } from 'react-icons/ai';
+import { delete_posted_job } from '@/Services/job/getPostedJobs';
 
 
 
-export default function JobDetails() {
+export default function JobDetails({job}) {
     const router = useRouter()
     const dispatch = useDispatch();
     const { id } = router.query
@@ -70,6 +72,21 @@ export default function JobDetails() {
         }
 
     }
+
+    // const [search, setSearch] = useState('');
+
+    // const [filteredData, setFilteredData] = useState([]);
+
+
+    // const handleDelete = async  (id) => {
+    //     const res =  await delete_posted_job(id);
+    //     if(res.success) {
+    //        return setFilteredData(filteredData.filter(item => item?._id !== id))
+    //     }
+    //     else{
+    //       return  toast.error(res.message);
+    //     }
+    // }
 
     return (
         <>
@@ -143,6 +160,14 @@ export default function JobDetails() {
                                                 </div>
                                             )
                                         }
+                                        {/* {
+                                            JobDetails?.user?.email === user?.email ? (
+                        <button onClick={() => handleDelete(job?._id)} className='md:px-2 md:py-2 px-1 py-1 text-xl text-red-600 hover:text-white my-2 hover:bg-red-600 border border-red-600   rounded transition-all duration-700  '><AiFillDelete/></button>
+
+                                            ):(
+                                                <div></div>
+                                            )
+                                        } */}
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +213,7 @@ export default function JobDetails() {
                                             return (
                                                 <div key={item?._id} className='md:w-96 w-full py-3 mx-4 my-2 flex items-center md:items-start px-6 justify-start md:justify-center flex-col rounded bg-gray-50'>
                                                     <div className='mb-4 flex px-4 flex-col md:flex-row items-center justify-start py-2 '>
-                                                        <Image width={70} height={70} className="flex rounded-full mb-4 md:mb-0" src={"https://xsgames.co/randomusers/avatar.php?g=male"} alt="no image" />
+                                                        <Image width={70} height={70} className="flex rounded-full mb-4 md:mb-0" src={"/avatar.jpg"} alt="no image" />
                                                         <div className='flex flex-col w-full mx-2 px-2'>
                                                             <h1 className='text-base md:text-left text-center  md:text-2xl font-semibold'>{item?.title}</h1>
                                                             <p className='text-xs md:text-left text-center sm:text-sm md:text-base text-gray-800'>{item?.job_location}</p>

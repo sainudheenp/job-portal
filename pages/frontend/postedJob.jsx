@@ -33,6 +33,8 @@ export default function PostedJobs() {
 
     if(error) toast.error(error)
 
+    
+
     return (
         <>
             {
@@ -45,7 +47,7 @@ export default function PostedJobs() {
                     <>
                         <NavBar />
                         <div className='w-full  pt-20'>
-                            <div className='w-full h-20 bg-gray-50 text-indigo-600 font-bold flex items-center justify-center flex-col'>
+                            <div className='w-full h-20 bg-gray-50 font-bold flex items-center justify-center flex-col'>
                                 <h1 className='text-3xl'>Posted Jobs</h1>
                             </div>
                             <div className='w-full h-full px-4 py-4 flex  overflow-y-auto  items-start justify-center flex-wrap'>
