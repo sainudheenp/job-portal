@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formspree/react": "^2.5.1",
     "@next/font": "13.2.3",
     "@reduxjs/toolkit": "^1.9.3",
     "bcryptjs": "^2.4.3",
