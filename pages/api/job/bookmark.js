@@ -1,6 +1,7 @@
 import ConnectDB from '@/DB/connectDB';
 import validateToken from '@/middleware/tokenValidation';
 import bookMarkJob from '@/models/Bookmark';
+import job from '@/models/Job'
 import Joi from 'joi';
 
 

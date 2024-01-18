@@ -9,7 +9,6 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { BsFillBookmarkStarFill } from 'react-icons/bs'
 import { GiSuitcase } from 'react-icons/gi'
-import { InfinitySpin } from 'react-loader-spinner'
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -60,8 +59,8 @@ export default function Dashboard() {
         loading ? (
 
           <div className='bg-gray w-full h-screen flex items-center flex-col justify-center '>
-            <InfinitySpin width='200' color="#4f46e5" />
-            <p className='text-xs uppercase'>Loading Resources Hold Tight...</p>
+           
+            
           </div>
         ) : (
           <>

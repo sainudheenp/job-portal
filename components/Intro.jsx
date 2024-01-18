@@ -17,7 +17,7 @@ export default function Intro() {
   const handleSearch = (e) => {
     e.preventDefault();
     const filteredJobs = jobData?.filter((job) => {
-      let x = job?.job_category;
+      let x = job?.title;
       return x?.toUpperCase() === search?.toUpperCase().trim();
     });
     setFilteredJobs(filteredJobs);
@@ -39,7 +39,7 @@ export default function Intro() {
           <div className=' w-full px-2 py-2 flex items-center justify-start flex-wrap'>
             <div className='flex items-center justify-center'>
               <BsFillBookmarkFill className='text-gray-400 text-xl mx-2' />
-              <h1 className='font-semibold text-lg'>Suggest Tag : </h1>
+              <h1 className='font-semibold text-lg'>Suggestions: </h1>
             </div>
             <div className='flex   items-center justify-center px-4 flex-wrap'>
               <p className='px-2  text-gray-400'>Gardening</p>
@@ -54,7 +54,7 @@ export default function Intro() {
       </div>
       {
         doneSearch && (
-          <div className='w-full flex flex-wrap items-center justify-center py-2 px-2'>
+          <div className='w-full flex flex-wrap items-center justify-center py-2 px-2  ' >
             {
               Array.isArray(filterJobs) && filterJobs.length > 0 ? filterJobs?.map((job) => {
                 return (

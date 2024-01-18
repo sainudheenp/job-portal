@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router';
 import useSWR from 'swr'
 import { get_application_details } from '@/Services/job';
-import { InfinitySpin } from 'react-loader-spinner';
 import NavBar from '@/components/NavBar';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
@@ -41,8 +40,8 @@ export default function ApplicationsDetail() {
             {
                 isLoading ? (
                     <div className='bg-gray w-full h-screen flex items-center flex-col justify-center'>
-                        <InfinitySpin width='200' color="#4f46e5" />
-                        <p className='text-xs uppercase'>Loading Resources Hold Tight...</p>
+                        
+
                     </div>
                 ) : (
                     <>

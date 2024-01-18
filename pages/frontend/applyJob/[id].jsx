@@ -96,7 +96,7 @@ export default function ApplyJob() {
                 <form encType="multipart/form-data" onSubmit={handleSubmit} className="sm:w-1/2 w-full px-4 mx-4  h-full" >
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="title" className='mb-1 text-base font-semibold'>Name :</label>
-                        <input name='name' onChange={(e) => setFormikData({ ...formikData, name: e.target.value })} type="text" id='title' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Name ' />
+                        <input name='name' onChange={(e) => setFormikData({ ...formikData, name: e.target.value })} type="text" id='title' className='w-full py-2 px-3 mb-2 border border-black rounded text-black' placeholder='Enter Name ' />
                         {
                             error.name && <p className="text-sm text-red-500">{error.name}</p>
                         }
@@ -110,7 +110,7 @@ export default function ApplyJob() {
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="description" className='mb-1 text-base font-semibold'>About :</label>
-                        <textarea name='about' onChange={(e) => setFormikData({ ...formikData, about: e.target.value })} type="description" id='description' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter description' />
+                        <textarea name='about' onChange={(e) => setFormikData({ ...formikData, about: e.target.value })} type="description" id='description' className='w-full py-2 px-3 mb-2 border border-black rounded text-black' placeholder='Enter description' />
                         {
                             error.about && <p className="text-sm text-red-500">{error.about}</p>
                         }
