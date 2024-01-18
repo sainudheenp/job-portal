@@ -10,7 +10,7 @@ const MakePaymentComponent = () => {
           return;
         }
         // Make API call to the serverless API
-        const data = await fetch("http://localhost:3000/api/razorpay",
+        const data = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/razorpay`,
         {
              method: "POST",
              headers: {
