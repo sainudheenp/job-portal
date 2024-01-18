@@ -91,6 +91,7 @@ export default function  Register (){
               <p className="text-sm font-light text-gray-500 ">
                 Already have an account  <Link href="/auth/login" className="font-medium text-black hover:underline ">Sign In</Link>
               </p>
+              <Link href="/frontend/payment" className="font-medium text-black hover:underline ">Payment</Link>
             </form>
           </div>
         </div>

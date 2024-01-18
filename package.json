@@ -28,6 +28,7 @@
     "next": "^13.2.3",
     "next-auth": "^4.20.1",
     "nextjs-progressbar": "^0.0.16",
+    "razorpay": "^2.9.2",
     "react": "18.2.0",
     "react-data-table-component": "^7.5.3",
     "react-dom": "18.2.0",
@@ -37,6 +38,7 @@
     "react-redux": "^8.0.5",
     "react-select": "^5.7.0",
     "react-toastify": "^9.1.1",
+    "shortid": "^2.2.16",
     "swr": "^2.1.2"
   },
   "devDependencies": {
