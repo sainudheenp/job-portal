@@ -17,7 +17,7 @@ const MakePaymentComponent = () => {
                 'Content-Type': 'application/json',
             },
              body: JSON.stringify({
-                taxAmt:1000
+                taxAmt:99
              })
          }
         )
