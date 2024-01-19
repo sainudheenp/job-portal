@@ -69,8 +69,8 @@ const key = "rzp_test_KK4UktB22pe2sp"
         });
       }
   return (
-    <div>
-        <button onClick={()=>makePayment()}>Pay 100 now</button>
+    <div  classname="grid h-screen place-items-center">
+        <button onClick={()=>makePayment()}>Pay 99 now</button>
     </div>
   )
 }
