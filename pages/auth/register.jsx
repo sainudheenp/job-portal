@@ -44,7 +44,7 @@ export default function  Register (){
     if (data.success) {
       toast.success(data.message);
       setTimeout(() => {
-        router.push('/auth/login');
+        router.push('/frontend/payment');
       }, 2000);
     }
     else {
