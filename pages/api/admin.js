@@ -4,7 +4,7 @@ import Job from '@/models/Job';
 import user from '@/models/User';
 // import Joi from 'joi';
 // import jwt from 'jsonwebtoken';
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 
 ConnectDB();
 
@@ -30,11 +30,12 @@ export default async function handler(req, res) {
         // Use countDocuments to get the total count of jobs
         const Count = await user.countDocuments({});
         const JobCount = await Job.countDocuments({});
-        const Userdata = await Job.find({}).populate('user');
+        const Userdata = await user.find({});
+        const UserDelete = await user.deleteOne({});
         // console.log(Userdata)
         // console.log(Count);
 
-        return res.status(200).json({ success: true, data: { Count, JobCount,Userdata } });
+        return res.status(200).json({ success: true, data: { Count, JobCount,Userdata, UserDelete } });
     } catch (error) {
         console.log('Error in getting count (server) => ', error);
         return res.status(500).json({ success: false });

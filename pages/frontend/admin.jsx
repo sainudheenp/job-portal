@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
+import { delete_users } from "@/Services/job/deleteUsers";
 
 export default function Admin({}) {
   const [Count, setUserCount] = useState(null);
@@ -27,6 +28,16 @@ export default function Admin({}) {
 
     fetchData();
   }, []);
+
+//   const handleUsers = async  (id) => {
+//     const res =  await delete_users(id);
+//     if(res.success) {
+//        return setFilteredData(filteredData.filter(item => item?._id !== id))
+//     }
+//     else{
+//       return  toast.error(res.message);
+//     }
+// }
 
   return (
     <div class="flex h-screen">
@@ -245,6 +256,9 @@ export default function Admin({}) {
           <div class="flex flex-col mt-8">
             <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
               <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+              {error && <p>{error}</p>}
+                                  {Array.isArray(Userdata) &&
+                                  Userdata.length > 0 ? (
                 <table class="min-w-full">
                   <thead>
                     <tr className="bg-black">
@@ -257,9 +271,9 @@ export default function Admin({}) {
                       <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-white uppercase border-b border-gray-200 ">
                         Status
                       </th>
-                      <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-white uppercase border-b border-gray-200 ">
+                      {/* <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-white uppercase border-b border-gray-200 ">
                         Edit
-                      </th>
+                      </th> */}
                       <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-white uppercase border-b border-gray-200 ">
                         Delete
                       </th>
@@ -267,13 +281,15 @@ export default function Admin({}) {
                   </thead>
 
                   <tbody class="bg-white">
-                    <tr>
+                  {Userdata.map((user) => (
+                                        
+                    <tr key={user._id}>
                       <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                         <div class="flex items-center">
                           <div class="flex-shrink-0 w-10 h-10">
-                            <img
-                              class="w-10 h-10 rounded-full"
-                              src="https://source.unsplash.com/user/erondu"
+                            <Image width={70} height={70}
+                              class="w-10 h-10 rounded-full width"
+                              src="/avatar.jpg"
                               alt="admin dashboard ui"
                             />
                           </div>
@@ -282,21 +298,12 @@ export default function Admin({}) {
                             <div class="text-sm font-medium leading-5 text-gray-900">
                               <div>
                                 
-                                  {error && <p>{error}</p>}
-                                  {Array.isArray(Userdata) &&
-                                  Userdata.length > 0 ? (
-                                    <ul>
-                                      {Userdata.map((user) => (
-                                        <li key={user._id}>
-                                          <p>{user.user.name}</p>
-                                          <p>{user.user.email}</p>
-                                          {/* Add other relevant fields as needed */}
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  ) : (
-                                    <p>No job data available.</p>
-                                  )}
+                                  {user.name}
+                                          
+                                        
+                                      
+                                   
+                                  
                                 
                               </div>
                             </div>
@@ -306,7 +313,7 @@ export default function Admin({}) {
 
                       <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                         <div class="text-sm leading-5 text-gray-500">
-                          john@example.com
+                        {user.email}
                         </div>
                       </td>
 
@@ -316,7 +323,7 @@ export default function Admin({}) {
                         </span>
                       </td>
 
-                      <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                      {/* <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="w-6 h-6 text-blue-400"
@@ -331,7 +338,7 @@ export default function Admin({}) {
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                           />
                         </svg>
-                      </td>
+                      </td> */}
                       <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -339,6 +346,7 @@ export default function Admin({}) {
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
+                        //   onClick={() => handleUsers(user?._id)}
                         >
                           <path
                             stroke-linecap="round"
@@ -349,264 +357,14 @@ export default function Admin({}) {
                         </svg>
                       </td>
                     </tr>
-                    <tr>
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <div class="flex items-center">
-                          <div class="flex-shrink-0 w-10 h-10">
-                            <img
-                              class="w-10 h-10 rounded-full"
-                              src="https://source.unsplash.com/user/erondu"
-                              alt="admin dashboard ui"
-                            />
-                          </div>
-
-                          <div class="ml-4">
-                            <div class="text-sm font-medium leading-5 text-gray-900">
-                              John Doe
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <div class="text-sm leading-5 text-gray-500">
-                          john@example.com
-                        </div>
-                      </td>
-
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                          Active
-                        </span>
-                      </td>
-
-                      <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 text-blue-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                          />
-                        </svg>
-                      </td>
-                      <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 text-red-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                          />
-                        </svg>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <div class="flex items-center">
-                          <div class="flex-shrink-0 w-10 h-10">
-                            <img
-                              class="w-10 h-10 rounded-full"
-                              src="https://source.unsplash.com/user/erondu"
-                              alt="admin dashboard ui"
-                            />
-                          </div>
-
-                          <div class="ml-4">
-                            <div class="text-sm font-medium leading-5 text-gray-900">
-                              John Doe
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <div class="text-sm leading-5 text-gray-500">
-                          john@example.com
-                        </div>
-                      </td>
-
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                          Active
-                        </span>
-                      </td>
-
-                      <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 text-blue-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                          />
-                        </svg>
-                      </td>
-                      <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 text-red-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                          />
-                        </svg>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <div class="flex items-center">
-                          <div class="flex-shrink-0 w-10 h-10">
-                            <img
-                              class="w-10 h-10 rounded-full"
-                              src="https://source.unsplash.com/user/erondu"
-                              alt="admin dashboard ui"
-                            />
-                          </div>
-
-                          <div class="ml-4">
-                            <div class="text-sm font-medium leading-5 text-gray-900">
-                              John Doe
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <div class="text-sm leading-5 text-gray-500">
-                          john@example.com
-                        </div>
-                      </td>
-
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                          Active
-                        </span>
-                      </td>
-
-                      <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 text-blue-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                          />
-                        </svg>
-                      </td>
-                      <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 text-red-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                          />
-                        </svg>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <div class="flex items-center">
-                          <div class="flex-shrink-0 w-10 h-10">
-                            <img
-                              class="w-10 h-10 rounded-full"
-                              src="https://source.unsplash.com/user/erondu"
-                              alt="admin dashboard ui"
-                            />
-                          </div>
-
-                          <div class="ml-4">
-                            <div class="text-sm font-medium leading-5 text-gray-900">
-                              John Doe
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <div class="text-sm leading-5 text-gray-500">
-                          john@example.com
-                        </div>
-                      </td>
-
-                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                        <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                          Active
-                        </span>
-                      </td>
-
-                      <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 text-blue-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                          />
-                        </svg>
-                      </td>
-                      <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="w-6 h-6 text-red-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                          />
-                        </svg>
-                      </td>
-                    </tr>
+                    
+                        ))}
+                      
                   </tbody>
                 </table>
+                ) : (
+                    <p>No job data available.</p>
+                  )}
               </div>
             </div>
           </div>
