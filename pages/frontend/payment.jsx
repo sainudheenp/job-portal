@@ -1,5 +1,7 @@
 //components->MakePaymentComponent.js
 import React from 'react'
+import Link from 'next/link';
+
 
 const MakePaymentComponent = () => {
     const makePayment = async () => {
@@ -29,22 +31,22 @@ const key = "rzp_test_KK4UktB22pe2sp"
         //console.log(data);
         var options = {
           key: key, // Enter the Key ID generated from the Dashboard
-          name: "Indradhanu.online",
+          name: "Hire-ALL",
           currency: data.currency,
           amount: data.amount,
           order_id: data.id,
-          description: "Thankyou for your test donation",
-          image: "https://manuarora.in/logo.png",
+          description: "Thankyou for Registering",
+          image: "https://w7.pngwing.com/pngs/925/749/png-transparent-mobile-payment-business-mobile-phones-money-payment-text-service-people-thumbnail.png",
           handler: function (response) {
             // Validate payment at server - using webhooks is a better idea.
-            alert("Razorpay Response: "+response.razorpay_payment_id);
+            // alert("Razorpay Response: "+response.razorpay_payment_id);
             //alert(response.razorpay_order_id);
             //alert(response.razorpay_signature);
           },
           prefill: {
-            name:"pradeep das",
-            email:"admin@indradhanu.online",
-            contact:'9853785519'
+            name:"your name",
+            email:"demo@mail.com",
+            contact:'9876543210'
 
           },
         };
@@ -70,7 +72,18 @@ const key = "rzp_test_KK4UktB22pe2sp"
       }
   return (
     <div  classname="grid h-screen place-items-center">
-        <button onClick={()=>makePayment()}>Pay 99 now</button>
+        {/* <button onClick={()=>makePayment()}>Pay 99 now</button> */}
+        <div className="flex flex-col items-center justify-center h-screen">
+          
+      <button onClick={()=>makePayment()} className="bg-black hover:bg-black-700 text-white font-bold py-2 px-4 rounded-full text-3xl">
+        Pay ₹99 now
+      </button>
+      
+      <div className="mt-4">
+          <Link href={'/auth/login'} className="text-black hover:underline">Back to Login
+          </Link>
+        </div>
+    </div>
     </div>
   )
 }

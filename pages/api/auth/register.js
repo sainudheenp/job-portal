@@ -29,7 +29,7 @@ export default async (req, res) => {
         else {
             const hashedPassword = await hash(password, 12)
             const createUser = await User.create({ email, name, password: hashedPassword });
-            return res.status(201).json({ success: true, message: "Account created successfully" });
+            return res.status(201).json({ success: true, message: "Thanks for Registering, Please pay the amount" });
         }
     } catch (error) {
         console.log('Error in register (server) => ', error);
