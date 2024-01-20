@@ -49,13 +49,13 @@ export default function ApplyJob() {
         }
 
         if (!file) {
-            setError({ ...error, cv: "Please Upload your Photo" })
+            setError({ ...error, cv: "Please Upload your Aadhaar card" })
             return;
         }
 
         // Check if the file type is PDF
-        if (file.type !== 'image/jpeg') {
-            setError({ ...error, cv: "Please Upload a jpg file" })
+        if (file.type !== 'application/pdf') {
+            setError({ ...error, cv: "Please Upload your Aadhaar card" })
             return;
         }
 
@@ -116,8 +116,8 @@ export default function ApplyJob() {
                         }
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
-                        <label htmlFor="file" className='mb-1 text-base font-semibold'>Upload Photo :</label>
-                        <input accept="image/jpeg" name='cv' onChange={(e) => setFile(e.target.files[0])} type="file" id='file' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Enter Photo' />
+                        <label htmlFor="file" className='mb-1 text-base font-semibold'>Upload your Aadhaar card :</label>
+                        <input accept="application/pdf" name='cv' onChange={(e) => setFile(e.target.files[0])} type="file" id='file' className='w-full py-2 px-3 mb-2 border border-black rounded' placeholder='Upload Aadhaar' />
                         {
                             error.cv && <p className="text-sm text-red-500">{error.cv}</p>
                         }
