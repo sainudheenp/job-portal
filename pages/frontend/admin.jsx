@@ -1,18 +1,31 @@
 // import React from 'react'
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import axios from "axios";
 
-export default function Admin() {
-  const [collectionCount, setCollectionCount] = useState(null);
+export default function Admin({}) {
+  const [Count, setUserCount] = useState(null);
+  const [JobCount, setJobCount] = useState(null);
+  const [Userdata, setUserData] = useState(null);
+  const [error, setError] = useState(null);
+//   console.log(Userdata.user.name);
 
   useEffect(() => {
-    const fetchCollectionCount = async () => {
-      const response = await fetch("/api/admin");
-      const data = await response.json();
-      setCollectionCount(data.count);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/admin"); // Replace with your server endpoint
+        setUserCount(response.data.data.Count);
+        setJobCount(response.data.data.JobCount);
+        setUserData(response.data.data.Userdata);
+        console.log(response.data.data.Userdata);
+
+      } catch (error) {
+        console.error("Error fetching job count:", error);
+        setError("Error fetching count. Please try again.");
+      }
     };
 
-    fetchCollectionCount();
+    fetchData();
   }, []);
 
   return (
@@ -173,11 +186,8 @@ export default function Admin() {
               </div>
               <div class="mx-4">
                 <h4 class="text-2xl font-semibold text-white">
-                  {collectionCount !== null ? (
-                    <p>{collectionCount}</p>
-                  ) : (
-                    <p>Loading...</p>
-                  )}
+                  {error && <p>{error}</p>}
+                  {Count !== null && <p>{Count}</p>}
                 </h4>
                 <div class="text-white">All Users</div>
               </div>
@@ -202,8 +212,11 @@ export default function Admin() {
                 </svg>
               </div>
               <div class="mx-4">
-                <h4 class="text-2xl font-semibold text-white">30</h4>
-                <div class="text-white">All Blogs</div>
+                <h4 class="text-2xl font-semibold text-white">
+                  {error && <p>{error}</p>}
+                  {JobCount !== null && <p>{JobCount}</p>}
+                </h4>
+                <div class="text-white">Job Posted</div>
               </div>
             </div>
             <div class="flex items-center px-4 py-6 bg-black rounded-md shadow-md">
@@ -267,7 +280,25 @@ export default function Admin() {
 
                           <div class="ml-4">
                             <div class="text-sm font-medium leading-5 text-gray-900">
-                              John Doe
+                              <div>
+                                
+                                  {error && <p>{error}</p>}
+                                  {Array.isArray(Userdata) &&
+                                  Userdata.length > 0 ? (
+                                    <ul>
+                                      {Userdata.map((user) => (
+                                        <li key={user._id}>
+                                          <p>{user.user.name}</p>
+                                          <p>{user.user.email}</p>
+                                          {/* Add other relevant fields as needed */}
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  ) : (
+                                    <p>No job data available.</p>
+                                  )}
+                                
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -584,5 +615,3 @@ export default function Admin() {
     </div>
   );
 }
-
-
