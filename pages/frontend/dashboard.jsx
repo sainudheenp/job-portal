@@ -6,7 +6,8 @@ import { get_book_mark_job } from '@/Services/job/bookmark'
 import { setAppliedJob, setBookMark } from '@/Utils/AppliedJobSlice'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
+import React, { useEffect, useState  }  from 'react'
 import { BsFillBookmarkStarFill } from 'react-icons/bs'
 import { GiSuitcase } from 'react-icons/gi'
 import { useDispatch, useSelector } from 'react-redux'
@@ -72,6 +73,10 @@ export default function Dashboard() {
                   <GiSuitcase className='bg-gray-50 text-black rounded-full w-10 h-10' />
                   <div className='flex  flex-col mx-2 items-start justify-start px-2 '>
                     <p className='text-xl font-semibold'>Total Applied</p>
+
+
+
+                 
                     {/* <p className='text-lg font-semibold'>50+</p> */}
                   </div>
                 </div>
@@ -92,7 +97,13 @@ export default function Dashboard() {
                   showTable === 'savedJobs' ? <SavedJobDataTable /> : <AppliedJobDataTable />
                 }
               </div>
+              //here ,its a testing link
+                <Link href="/frontend/admin" className="font-medium text-black hover:underline ">Admin</Link>
+           
+
             </div>
+
+            
           </>
         )
       }

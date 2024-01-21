@@ -36,8 +36,9 @@ export default function Admin({}) {
 
   const handleUsers = async  (id) => {
     const res =  await delete_users(id);
+   
     if(res.success) {
-       return setFilteredData(filteredData.filter(item => item?._id !== id))
+       //return setFilteredData(filteredData.filter(item => item?._id !== id))
     }
     else{
     //   return  toast.error(res.message);
@@ -47,16 +48,16 @@ export default function Admin({}) {
 
 
 
-// const deleteUser = async (userId) => {
-//   try {
-//     const response = await axios.delete(`/api/deleteUser/${userId}`);
-//     console.log('User deleted:', response.data);
-//     // Handle success, update UI, etc.
-//   } catch (error) {
-//     console.error('Error deleting user:', error);
-//     // Handle error, display error message, etc.
-//   }
-// };
+const deleteUser = async (userId) => {
+  try {
+    const response = await axios.delete(`/api/deleteUser/${userId}`);
+    console.log('User deleted:', response.data);
+     // Handle success, update UI, etc.
+   } catch (error) {
+     console.error('Error deleting user:', error);
+    // Handle error, display error message, etc.
+   }
+ };
 
 
 
@@ -366,7 +367,7 @@ export default function Admin({}) {
                       </td> */}
                       <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
 
-                      <button onClick={() => handleUsers(user?._id)} className='md:px-2 md:py-2 px-1 py-1 text-xl text-red-600 hover:text-white my-2 hover:bg-red-600 border border-red-600   rounded transition-all duration-700  '><AiFillDelete/></button>
+                      <button onClick={() => handleUsers(user._id)} className='md:px-2 md:py-2 px-1 py-1 text-xl text-red-600 hover:text-white my-2 hover:bg-red-600 border border-red-600   rounded transition-all duration-700  '><AiFillDelete/></button>
                         {/* <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="w-6 h-6 text-red-400"
