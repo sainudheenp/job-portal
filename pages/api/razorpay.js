@@ -29,10 +29,14 @@ const secret='pUR7nCzO0DUVsnTFZs6gLMWx' ;
 
     try {
       const response = await razorpay.orders.create(options);
+      //redirect after successful payment
+      const redirectURL = `./auth/login`;
+
       res.status(200).json({
         id: response.id,
         currency: response.currency,
         amount: response.amount,
+        redirectURL,
       });
     } catch (err) {
       console.log(err);
