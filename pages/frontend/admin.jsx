@@ -4,8 +4,9 @@ import Image from "next/image";
 import axios from "axios";
 import { AiFillDelete } from 'react-icons/ai';
 import { delete_users } from "@/Services/job/deleteUsers";
+import useAuthMiddleware from '@/middleware/authMiddleware';
 
-export default function Admin({}) {
+function Admin({}) {
   const [Count, setUserCount] = useState(null);
   const [JobCount, setJobCount] = useState(null);
   const [Userdata, setUserData] = useState(null);
@@ -13,6 +14,12 @@ export default function Admin({}) {
   const [UserDelete, setUserDelete] = useState(null);
   const [error, setError] = useState(null);
 //   console.log(Userdata.user.name);
+
+
+const isAuthenticated = /* Your authentication status logic here */ false;
+
+  // Use the auth middleware to redirect if not authenticated
+  useAuthMiddleware(isAuthenticated);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -83,7 +90,7 @@ export default function Admin({}) {
             <h1 class="text-2xl font-bold text-white">Admin Dashboard</h1>
           </div>
           <ul>
-            <li class="mb-6">
+            {/* <li class="mb-6">
               <div class="relative">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-2">
                   <button type="submit" class="p-1 focus:outline-none">
@@ -107,7 +114,7 @@ export default function Admin({}) {
                   placeholder="Search..."
                 />
               </div>
-            </li>
+            </li> */}
             <li class="mb-2 rounded hover:shadow hover:bg-gray-800">
               <a
                 href="#"
@@ -130,7 +137,7 @@ export default function Admin({}) {
                 Home
               </a>
             </li>
-            <li class="mb-2 bg-gray-800 rounded shadow">
+            {/* <li class="mb-2 bg-gray-800 rounded shadow">
               <a
                 href="#"
                 class="inline-block w-full h-full px-3 py-2 font-bold text-white"
@@ -193,7 +200,7 @@ export default function Admin({}) {
                 </svg>
                 Inbox
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
@@ -401,3 +408,5 @@ export default function Admin({}) {
     </div>
   );
 }
+
+export default useAuthMiddleware(Admin);
