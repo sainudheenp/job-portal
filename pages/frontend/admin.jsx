@@ -2,12 +2,15 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
+import { AiFillDelete } from 'react-icons/ai';
 import { delete_users } from "@/Services/job/deleteUsers";
 
 export default function Admin({}) {
   const [Count, setUserCount] = useState(null);
   const [JobCount, setJobCount] = useState(null);
   const [Userdata, setUserData] = useState(null);
+  const [AllTransaction, setAllTransaction] = useState(null);
+  const [UserDelete, setUserDelete] = useState(null);
   const [error, setError] = useState(null);
 //   console.log(Userdata.user.name);
 
@@ -18,7 +21,9 @@ export default function Admin({}) {
         setUserCount(response.data.data.Count);
         setJobCount(response.data.data.JobCount);
         setUserData(response.data.data.Userdata);
-        console.log(response.data.data.Userdata);
+        setUserDelete(response.data.data.UserDelete);
+        setAllTransaction(response.data.data.AllTransaction);
+        // console.log(response.data.data.Userdata);
 
       } catch (error) {
         console.error("Error fetching job count:", error);
@@ -29,15 +34,32 @@ export default function Admin({}) {
     fetchData();
   }, []);
 
-//   const handleUsers = async  (id) => {
-//     const res =  await delete_users(id);
-//     if(res.success) {
-//        return setFilteredData(filteredData.filter(item => item?._id !== id))
-//     }
-//     else{
-//       return  toast.error(res.message);
-//     }
-// }
+  const handleUsers = async  (id) => {
+    const res =  await delete_users(id);
+    if(res.success) {
+       return setFilteredData(filteredData.filter(item => item?._id !== id))
+    }
+    else{
+    //   return  toast.error(res.message);
+    console.log(error)
+    }
+}
+
+
+
+// const deleteUser = async (userId) => {
+//   try {
+//     const response = await axios.delete(`/api/deleteUser/${userId}`);
+//     console.log('User deleted:', response.data);
+//     // Handle success, update UI, etc.
+//   } catch (error) {
+//     console.error('Error deleting user:', error);
+//     // Handle error, display error message, etc.
+//   }
+// };
+
+
+
 
   return (
     <div class="flex h-screen">
@@ -248,7 +270,10 @@ export default function Admin({}) {
                 </svg>
               </div>
               <div class="mx-4">
-                <h4 class="text-2xl font-semibold text-white">1000</h4>
+                <h4 class="text-2xl font-semibold text-white">
+                {error && <p>{error}</p>}
+                  {AllTransaction !== null && <p>{AllTransaction}</p>}
+                </h4>
                 <div class="text-white">All Transaction</div>
               </div>
             </div>
@@ -340,7 +365,9 @@ export default function Admin({}) {
                         </svg>
                       </td> */}
                       <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                        <svg
+
+                      <button onClick={() => handleUsers(user?._id)} className='md:px-2 md:py-2 px-1 py-1 text-xl text-red-600 hover:text-white my-2 hover:bg-red-600 border border-red-600   rounded transition-all duration-700  '><AiFillDelete/></button>
+                        {/* <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="w-6 h-6 text-red-400"
                           fill="none"
@@ -354,7 +381,8 @@ export default function Admin({}) {
                             stroke-width="2"
                             d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                           />
-                        </svg>
+                        </svg> */}
+
                       </td>
                     </tr>
                     

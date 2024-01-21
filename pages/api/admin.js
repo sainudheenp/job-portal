@@ -31,11 +31,13 @@ export default async function handler(req, res) {
         const Count = await user.countDocuments({});
         const JobCount = await Job.countDocuments({});
         const Userdata = await user.find({});
-        const UserDelete = await user.deleteOne({});
+        const AllTransaction = Count * 99;
+        // const UserDelete = await user.deleteOne({});
+        // const UserDelete = await user.findByIdAndDelete({})
         // console.log(Userdata)
         // console.log(Count);
 
-        return res.status(200).json({ success: true, data: { Count, JobCount,Userdata, UserDelete } });
+        return res.status(200).json({ success: true, data: { Count, JobCount,Userdata, AllTransaction} });
     } catch (error) {
         console.log('Error in getting count (server) => ', error);
         return res.status(500).json({ success: false });
