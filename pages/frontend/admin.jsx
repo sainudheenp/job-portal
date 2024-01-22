@@ -418,4 +418,4 @@ const deleteUser = async (userId) => {
   );
 }
 
-export default useAuthMiddleware(Admin);
+export default Admin ;
