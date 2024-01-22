@@ -40,18 +40,26 @@ const isAuthenticated = /* Your authentication status logic here */ false;
 
     fetchData();
   }, []);
+  const handleUsers = async (id) => {
+    try {
+      // Ask for user confirmation
+      const confirmDelete = window.confirm("Are you sure you want to delete this user?");
 
-  const handleUsers = async  (id) => {
-    const res =  await delete_users(id);
-   
-    if(res.success) {
-       //return setFilteredData(filteredData.filter(item => item?._id !== id))
+      if (confirmDelete) {
+        const res = await delete_users(id);
+        if (res.success) {
+          // Update the Userdata state after successful deletion
+          setUserData((prevUserData) =>
+            prevUserData.filter((user) => user._id !== id)
+          );
+        } else {
+          console.log(res.message);
+        }
+      }
+    } catch (error) {
+      console.error(error);
     }
-    else{
-    //   return  toast.error(res.message);
-    console.log(error)
-    }
-}
+  };
 
 
 
