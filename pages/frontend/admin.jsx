@@ -5,6 +5,7 @@ import axios from "axios";
 import { AiFillDelete } from 'react-icons/ai';
 import { delete_users } from "@/Services/job/deleteUsers";
 import useAuthMiddleware from '@/middleware/authMiddleware';
+import Link from "next/link";
 
 function Admin({}) {
   const [Count, setUserCount] = useState(null);
@@ -124,7 +125,7 @@ const deleteUser = async (userId) => {
                 />
               </div>
             </li> */}
-            <li class="mb-2 rounded hover:shadow hover:bg-gray-800">
+            {/* <li class="mb-2 rounded hover:shadow hover:bg-gray-800">
               <a
                 href="#"
                 class="inline-block w-full h-full px-3 py-2 font-bold text-white"
@@ -145,28 +146,9 @@ const deleteUser = async (userId) => {
                 </svg>
                 Home
               </a>
-            </li>
-            {/* <li class="mb-2 bg-gray-800 rounded shadow">
-              <a
-                href="#"
-                class="inline-block w-full h-full px-3 py-2 font-bold text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="inline-block w-6 h-6 mr-2 -mt-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                Blogs
-              </a>
-            </li>
-            <li class="mb-2 rounded hover:shadow hover:bg-gray-800">
+            </li> */}
+
+<li class="mb-2 rounded hover:shadow bg-gray-800">
               <a
                 href="#"
                 class="inline-block w-full h-full px-3 py-2 font-bold text-white"
@@ -188,7 +170,28 @@ const deleteUser = async (userId) => {
                 Reports
               </a>
             </li>
-            <li class="mb-2 rounded hover:shadow hover:bg-gray-800">
+            
+            <li class="mb-2  rounded shadow">
+              <Link
+                href="/"
+                class="inline-block w-full h-full px-3 py-2 font-bold text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="inline-block w-6 h-6 mr-2 -mt-2"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                User Panel
+              </Link>
+            </li>
+            {/* <li class="mb-2 rounded hover:shadow hover:bg-gray-800">
               <a
                 href="#"
                 class="inline-block w-full h-full px-3 py-2 font-bold text-white"
@@ -210,6 +213,7 @@ const deleteUser = async (userId) => {
                 Inbox
               </a>
             </li> */}
+            
           </ul>
         </div>
       </div>
